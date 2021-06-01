@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" type="image/svg" href="favicon.svg" />
+  </head>
+
+  <body>
+    <div id="scoreboard" class="container grid">
+      <div id="game-header" class="grid">
+        <h2 id="main-heading" class="flex">Scoreboard</h2>
+        <div id="stats" class="flex">
+          <p>Total Points: <span id="total-points">0</span></p>
+          <p>Max Score: <span id="max-score">0</span></p>
+          <p>Leader(s): <span id="lead-player">Tao</span></p>
+          <p>Players sorted by <span id="sort-method">Tao</span></p>
+        </div>
+      </div>
+
+      <div id="players" class="grid"></div>
+
+      <div id="admin-buttons" class="flex">
+        <button data-action="add-player">Add new player</button>
+        <button data-action="sort-players">Sort players</button>
+        <button data-action="reset-scores">Reset scores</button>
+      </div>
+    </div>
+
+    <!-- modal for reset scores -->
+    <div id="reset-scores-modal" class="modal-window flex">
+      <div class="modal-content">
+        <h2>Are you sure that you want to reset all scores to 0?</h2>
+        <div class="modal-buttons flex">
+          <button data-action="cancel-reset-scores">cancel</button>
+          <button data-action="confirm-reset-scores">confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for delete player -->
+    <div id="delete-player-modal" class="modal-window flex">
+      <div class="modal-content">
+        <h2>Are you sure that you want to delete player?</h2>
+        <div class="modal-buttons flex">
+          <button data-action="cancel-delete-player">cancel</button>
+          <button data-action="confirm-delete-player">confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for sort players -->
+    <div id="sort-players-modal" class="modal-window flex">
+      <div class="modal-content">
+        <h2>Chose method of sorting or cancel</h2>
+        <div class="modal-buttons flex">
+          <button data-action="sort-players-name">name</button>
+          <button data-action="sort-players-age">age</button>
+          <button data-action="sort-players-score">score</button>
+          <button data-action="cancel-sort-players">cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for edit player -->
+    <div id="edit-player-modal" class="modal-window flex">
+      <div class="modal-content">
+        <h2>Edit details for existing player</h2>
+
+        <form action="" id="edit-player-form">
+          <label for="edit-player-form-name">Enter Player Name</label><br />
+          <input type="text" id="edit-player-form-name" /><br />
+
+          <label for="edit-player-form-motto">Enter Player Motto</label><br />
+          <input type="text" id="edit-player-form-motto" /><br />
+
+          <label for="edit-player-form-score">Enter Player Score</label><br />
+          <input type="number" id="edit-player-form-score" /><br />
+
+          <label for="edit-player-form-imgsrc">Enter Player Image Url</label>
+          <br />
+          <input type="url" id="edit-player-form-imgsrc" />
+        </form>
+
+        <div class="modal-buttons flex">
+          <button data-action="cancel-edit-player">cancel</button>
+          <button data-action="confirm-edit-player">confirm</button>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal for edit player -->
+
+    <script src="data.js"></script>
+    <script src="forms.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
